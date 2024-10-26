@@ -19,7 +19,7 @@
       <template v-for="(item, index) in menuItems" :key="item.title">
         <v-list-item
           :prepend-icon="item.icon"
-          :active="false"
+          append-icon="mdi-arrow-right"
           :to="item.to"
           @click="closeDrawer"
         >
@@ -52,7 +52,7 @@
     <template v-slot:prepend>
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
     </template>
-    <v-app-bar-title text="Cards"></v-app-bar-title>
+    <v-app-bar-title :text="currentPage"></v-app-bar-title>
     <template v-slot:append>
       <v-icon icon="mdi-account-circle-outline" size="large"></v-icon>
       <v-icon icon="mdi-chevron-down" size="large"></v-icon>
@@ -62,7 +62,8 @@
 
 <script setup lang="ts">
 import { MENU_ITEMS } from '@/constants'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 /**
  * The main header component
@@ -79,6 +80,8 @@ interface MenuItem {
   to: string
 }
 
+const route = useRoute()
+const currentPage = computed(() => route.name?.toString())
 const drawer = ref(true) // Set to true by default to show the drawer without overlay
 
 // Initialize the menu items with type annotation

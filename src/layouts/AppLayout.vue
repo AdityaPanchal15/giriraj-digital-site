@@ -1,13 +1,17 @@
 <template>
   <v-layout>
     <TheHeader />
-    <v-main class="d-flex align-center justify-center">
-      <slot />
+    <v-main>
+      <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
+      <v-container>
+        <slot />
+      </v-container>
     </v-main>
   </v-layout>
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 /**
  * Default layout
  * @category Layout
@@ -16,4 +20,12 @@
  * <AppLayout />
  */
 import TheHeader from '@/components/TheHeader.vue'
+import { computed } from 'vue'
+
+const route = useRoute()
+const breadcrumbs = computed(() =>
+  route.name && route.name.toString() !== 'Home'
+    ? ['Home', route.name.toString()]
+    : ['Home'],
+) // Or route.path for the path
 </script>

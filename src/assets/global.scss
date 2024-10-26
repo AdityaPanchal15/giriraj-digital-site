@@ -12,13 +12,31 @@ body {
     justify-content: space-between;
     .v-list {
       .v-list-item {
-        .v-list-item__prepend {
+        color: #0c3f62;
+        .v-list-item__prepend,
+        .v-list-item__append {
           .v-icon {
             color: white !important;
             opacity: unset !important;
           }
           .v-list-item__spacer {
             width: 10px;
+          }
+        }
+        &.v-list-item--active {
+          .v-list-item__append,
+          .v-list-item__prepend {
+            .v-icon {
+              color: #0fa1dc !important;
+            }
+          }
+          .v-list-item__content .v-list-item-title {
+            color: #0fa1dc !important;
+          }
+        }
+        &:not(.v-list-item--active) {
+          .v-list-item__append {
+            display: none;
           }
         }
       }
