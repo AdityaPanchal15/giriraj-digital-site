@@ -1,0 +1,31 @@
+@import './base.css';
+
+body {
+  display: flex;
+}
+
+/********************** Header *********************/
+.navigation-drawer {
+  .v-navigation-drawer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .v-list {
+      .v-list-item {
+        .v-list-item__prepend {
+          .v-icon {
+            color: white !important;
+            opacity: unset !important;
+          }
+          .v-list-item__spacer {
+            width: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-items .v-toolbar__content {
+  color: #409bbc;
+}
