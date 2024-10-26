@@ -21,7 +21,6 @@
           :prepend-icon="item.icon"
           append-icon="mdi-arrow-right"
           :to="item.to"
-          @click="closeDrawer"
         >
           <v-list-item-title class="text-white">{{
             item.title
@@ -91,13 +90,8 @@ function toggleDrawer() {
   drawer.value = !drawer.value
 }
 
-function closeDrawer() {
-  drawer.value = false
-}
-
 function logout() {
   alert('Logout')
-  closeDrawer()
 }
 </script>
 
