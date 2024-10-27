@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import PaymentDetails from './PaymentDetails.vue'
+import PaymentDetails from './transactionAndCardDetails/PaymentDetails.vue'
 /**
  * The card tabs block
  * @category cards
