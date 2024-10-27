@@ -1,10 +1,10 @@
 <template>
-  <div>Home</div>
+  <div>Settings Page</div>
 </template>
 
 <script setup lang="ts">
 /**
- * The home page
+ * The settings page
  * @category page
  * @component
  */

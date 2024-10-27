@@ -1,10 +1,12 @@
 <template>
-  <div>Home</div>
+  <CardTabs />
 </template>
 
 <script setup lang="ts">
+import CardTabs from '@/components/templates/cards/CardTabs.vue'
+
 /**
- * The home page
+ * The card page
  * @category page
  * @component
  */
