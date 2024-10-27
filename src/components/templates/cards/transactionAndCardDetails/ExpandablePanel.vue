@@ -22,7 +22,7 @@ import { defineProps } from 'vue'
  * @category Cards
  * @component
  * @example <caption>Cards usage (see code)</caption>
- * <ExpandablePanel :title="title" :icon="icon"/>
+ * <ExpandablePanel :title="title" :icon="icon" :value="value" />
  */
 
 const props = defineProps<{

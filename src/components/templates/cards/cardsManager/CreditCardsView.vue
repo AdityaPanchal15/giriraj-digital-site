@@ -23,12 +23,13 @@
             :cardNumber="card.cardNumber"
             :expiry="card.expiry"
             :isMasked="isMasked"
+            :selectedOption="selectedAction"
           />
         </v-carousel-item>
       </v-carousel>
     </v-col>
     <v-col cols="12" md="4">
-      <CardActions />
+      <CardActions v-model="selectedAction" />
     </v-col>
   </v-row>
 </template>
@@ -49,6 +50,8 @@ import { useCardsStore } from '@/stores/cards'
 
 // State to determine if the card number is masked or not
 const isMasked = ref(true)
+// State to determine selected option for card.
+const selectedAction = ref(null)
 
 // Toggle function
 const toggleMaskNumber = () => {

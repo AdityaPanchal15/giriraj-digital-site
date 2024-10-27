@@ -1,6 +1,18 @@
 <template>
-  <v-card class="credit-card" color="#0c3f62" dark rounded="2">
-    <div class="bank-logo">
+  <v-card
+    class="credit-card"
+    :color="selectedOptionColors[selectedOption - 1] || '#0c3f62'"
+    dark
+    rounded="2"
+  >
+    <div
+      class="bank-logo"
+      :class="selectedOption ? 'justify-space-between' : 'justify-end'"
+    >
+      <v-icon
+        v-if="selectedOption"
+        :icon="selectedOptionIcon[selectedOption - 1]"
+      ></v-icon>
       <img height="20" :src="bankLogo" />
     </div>
     <v-row class="mt-14" no-gutters>
@@ -26,14 +38,14 @@
 <script lang="ts" setup>
 import bankLogo from '@/assets/images/hdfc-bank-logo.png'
 import masterCardLogo from '@/assets/images/master-card.png'
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, ref } from 'vue'
 
 /**
  * Component to show credit/debit card
  * @category Cards
  * @component
  * @example <caption>Cards usage (see code)</caption>
- * <CreditCard :cardHolder="cardHolder" :cardNumber="cardNumber" :expiry="expiry" :isMasked="isMasked" />
+ * <CreditCard :cardHolder="cardHolder" :cardNumber="cardNumber" :expiry="expiry" :isMasked="isMasked" :selectedOption="selectedOption" />
  */
 
 interface CardProps {
@@ -41,9 +53,12 @@ interface CardProps {
   cardNumber: string
   expiry: string
   isMasked: boolean
+  selectedOption: number
 }
 
 const props = defineProps<CardProps>()
+const selectedOptionColors = ['#6a94a5', '#6a94a5', '#0fa1db', '#0fa1db']
+const selectedOptionIcon = ['mdi-lock', 'mdi-archive', 'mdi-check', 'mdi-gpay']
 
 // Computed property to display masked or unmasked number
 const displayNumber = computed(() => {
@@ -68,7 +83,6 @@ const displayNumber = computed(() => {
 }
 .bank-logo {
   display: flex;
-  justify-content: flex-end;
-  margin: 1rem 1rem 0 0;
+  margin: 1rem 1rem 0 1rem;
 }
 </style>

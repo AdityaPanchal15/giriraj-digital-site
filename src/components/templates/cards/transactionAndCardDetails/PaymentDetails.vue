@@ -14,13 +14,11 @@
         icon="mdi-tune-variant"
       >
         <v-list>
-          <v-list-item-group>
-            <TransactionCard
-              v-for="(transaction, index) in $cardsStore.transactions"
-              :key="index"
-              :transaction="transaction"
-            />
-          </v-list-item-group>
+          <TransactionCard
+            v-for="(transaction, index) in $cardsStore.transactions"
+            :key="index"
+            :transaction="transaction"
+          />
         </v-list>
       </ExpandablePanel>
     </v-expansion-panels>
