@@ -6,12 +6,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView,
     },
     {
       path: '/cards',
-      name: 'cards',
+      name: 'Cards',
       // route level code-splitting
       // this generates a separate chunk (Cards.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -19,7 +19,7 @@ const router = createRouter({
     },
     {
       path: '/transactions',
-      name: 'transactions',
+      name: 'Transactions',
       // route level code-splitting
       // this generates a separate chunk (Transactions.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -27,7 +27,7 @@ const router = createRouter({
     },
     {
       path: '/settings',
-      name: 'settings',
+      name: 'Settings',
       // route level code-splitting
       // this generates a separate chunk (Settings.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

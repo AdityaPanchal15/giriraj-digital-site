@@ -4,6 +4,10 @@ body {
   display: flex;
 }
 
+#app {
+  width: 100%;
+}
+
 /********************** Header *********************/
 .navigation-drawer {
   .v-navigation-drawer__content {
@@ -12,13 +16,31 @@ body {
     justify-content: space-between;
     .v-list {
       .v-list-item {
-        .v-list-item__prepend {
+        color: #0c3f62;
+        .v-list-item__prepend,
+        .v-list-item__append {
           .v-icon {
             color: white !important;
             opacity: unset !important;
           }
           .v-list-item__spacer {
             width: 10px;
+          }
+        }
+        &.v-list-item--active {
+          .v-list-item__append,
+          .v-list-item__prepend {
+            .v-icon {
+              color: #0fa1dc !important;
+            }
+          }
+          .v-list-item__content .v-list-item-title {
+            color: #0fa1dc !important;
+          }
+        }
+        &:not(.v-list-item--active) {
+          .v-list-item__append {
+            display: none;
           }
         }
       }
@@ -29,3 +51,10 @@ body {
 .header-items .v-toolbar__content {
   color: #409bbc;
 }
+
+/******************* Cards Page *******************/
+// .cards {
+//   .v-slide-group {
+//     border-bottom: 1px solid #d3dbdd;
+//   }
+// }
