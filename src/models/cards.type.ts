@@ -5,3 +5,9 @@ export interface ITransaction {
   amount: number
   type: 'debit' | 'credit'
 }
+
+export interface ICard {
+  cardHolder: string
+  cardNumber: string
+  expiry: string
+}
