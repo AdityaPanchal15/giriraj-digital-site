@@ -16,6 +16,7 @@
         :show-arrows="false"
         height="300"
         hide-delimiter-background
+        v-model="currentCard"
       >
         <v-carousel-item v-for="(card, i) in $cardsStore.cards" :key="i">
           <CreditCard
@@ -37,7 +38,7 @@
 <script lang="ts" setup>
 import CreditCard from './CreditCard.vue'
 import CardActions from './CardActions.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useCardsStore } from '@/stores/cards'
 
 /**
@@ -52,11 +53,17 @@ import { useCardsStore } from '@/stores/cards'
 const isMasked = ref(true)
 // State to determine selected option for card.
 const selectedAction = ref(null)
+const currentCard = ref(0)
 
 // Toggle function
 const toggleMaskNumber = () => {
   isMasked.value = !isMasked.value
 }
+
+//Reset state on card change.
+watch(currentCard, () => {
+  selectedAction.value = null
+})
 
 const $cardsStore = useCardsStore()
 </script>
