@@ -12,9 +12,16 @@
     </div>
 
     <v-tabs-window v-model="tab">
-      <div class="px-8">
+      <div class="px-4">
         <template v-if="tab === 1">
-          <div>Saved Cards</div>
+          <v-row>
+            <v-col cols="4">
+              <PaymentDetails />
+            </v-col>
+            <v-col cols="8">
+              <p class="py-4">Cards</p>
+            </v-col>
+          </v-row>
         </template>
         <template v-else>
           <div>GD Cards</div>
@@ -26,6 +33,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import PaymentDetails from './PaymentDetails.vue'
 /**
  * The card tabs block
  * @category cards

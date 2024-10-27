@@ -3,9 +3,9 @@
     <TheHeader />
     <v-main>
       <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
-      <v-container>
+      <div class="px-4">
         <slot />
-      </v-container>
+      </div>
     </v-main>
   </v-layout>
 </template>
