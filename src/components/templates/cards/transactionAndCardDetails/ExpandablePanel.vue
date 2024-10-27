@@ -1,5 +1,5 @@
 <template>
-  <v-expansion-panel class="mb-4">
+  <v-expansion-panel :value="value" class="mb-4">
     <v-expansion-panel-title
       expand-icon="mdi-chevron-down-circle"
       collapse-icon="mdi-chevron-up-circle"
@@ -22,12 +22,13 @@ import { defineProps } from 'vue'
  * @category Cards
  * @component
  * @example <caption>Cards usage (see code)</caption>
- * <ExpandablePanel :title="title" :icon="icon"/>
+ * <ExpandablePanel :title="title" :icon="icon" :value="value" />
  */
 
 const props = defineProps<{
   title: string
   icon: string
+  value: number
 }>()
 </script>
 

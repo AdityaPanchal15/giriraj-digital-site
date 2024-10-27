@@ -19,7 +19,14 @@
               <PaymentDetails />
             </v-col>
             <v-col cols="8">
-              <p class="py-4">Cards</p>
+              <div class="py-4">
+                <p class="text-h5 card-heading">Credit Cards</p>
+                <CreditCardsView />
+              </div>
+              <div class="py-4">
+                <p class="text-h5 card-heading">Debit Cards</p>
+                <CreditCardsView />
+              </div>
             </v-col>
           </v-row>
         </template>
@@ -34,6 +41,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import PaymentDetails from './transactionAndCardDetails/PaymentDetails.vue'
+import CreditCardsView from './cardsManager/CreditCardsView.vue'
 /**
  * The card tabs block
  * @category cards
@@ -50,5 +58,10 @@ const tab = ref(1)
   justify-content: space-between;
   border-bottom: 1px solid #d3dbdd;
   padding: 0 2rem;
+}
+.card-heading {
+  color: #0fa1db;
+  text-underline-offset: 10px;
+  text-decoration: underline;
 }
 </style>

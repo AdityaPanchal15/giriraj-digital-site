@@ -37,3 +37,21 @@ export const transactionsMockData: Array<ITransaction> = [
     type: 'credit',
   },
 ]
+
+export const cardsMockData = [
+  {
+    cardHolder: 'John Watson',
+    cardNumber: '1234567823459340',
+    expiry: '12/24',
+  },
+  {
+    cardHolder: 'Emma Johnson',
+    cardNumber: '9876543212345678',
+    expiry: '08/26',
+  },
+  {
+    cardHolder: 'Liam Smith',
+    cardNumber: '5432109876543210',
+    expiry: '04/25',
+  },
+]

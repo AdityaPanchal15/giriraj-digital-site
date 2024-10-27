@@ -1,22 +1,24 @@
 <template>
   <v-container class="transaction-list">
-    <v-expansion-panels color="#f8f8f8" flat>
+    <v-expansion-panels v-model="activePanel" color="#f8f8f8" flat>
       <!-- Card Details Section -->
-      <ExpandablePanel title="Card Details" icon="mdi-grid-large">
+      <ExpandablePanel :value="1" title="Card Details" icon="mdi-grid-large">
         <!-- Card details content goes here -->
         <p>Card details content can go here.</p>
       </ExpandablePanel>
 
       <!-- Today's Transactions Section -->
-      <ExpandablePanel title="Today's Transactions" icon="mdi-tune-variant">
+      <ExpandablePanel
+        :value="2"
+        title="Today's Transactions"
+        icon="mdi-tune-variant"
+      >
         <v-list>
-          <v-list-item-group>
-            <TransactionCard
-              v-for="(transaction, index) in $cardsStore.transactions"
-              :key="index"
-              :transaction="transaction"
-            />
-          </v-list-item-group>
+          <TransactionCard
+            v-for="(transaction, index) in $cardsStore.transactions"
+            :key="index"
+            :transaction="transaction"
+          />
         </v-list>
       </ExpandablePanel>
     </v-expansion-panels>
@@ -24,6 +26,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import ExpandablePanel from './ExpandablePanel.vue'
 import TransactionCard from './TransactionCard.vue'
 import { useCardsStore } from '@/stores/cards'
@@ -37,6 +40,7 @@ import { useCardsStore } from '@/stores/cards'
  */
 
 const $cardsStore = useCardsStore()
+const activePanel = ref(2)
 </script>
 
 <style scoped lang="scss"></style>
